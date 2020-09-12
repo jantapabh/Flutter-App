@@ -1,5 +1,6 @@
 //Text widget
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projectapp/constant.dart';
 
 void main() => runApp(MyApp());
@@ -44,8 +45,15 @@ class HomeScreen extends StatelessWidget {
                     ),
                     image: DecorationImage(
                       image: AssetImage("assets/images/virus.png"),
-                    )),
-              ))
+                    )
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SvgPicture.asset("assets/icons/menu.svg"),
+                        ],
+                        )
+                    ),
+              )
         ],
       ),
     );
@@ -65,11 +73,9 @@ class MyClipper extends CustomClipper<Path> {
         path.close();
     return path;
   }
-
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
 //To do element ShouldReclip
-
     return false;
   }
 }
