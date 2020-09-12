@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: HomeScreen(title: 'Flutter Demo Home Page'),
+      home: HomeScreen(),
     );
   }
 }
@@ -25,11 +25,24 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: <Widget>[
-        Container(
-          height: 350,
-          width: double.infinity,
-          decoration: BoxDecoration(gradient: LinearGradient(colors: [Color(0xFF)]) ),)],
+      body: Column(
+        children: <Widget>[
+          Container(
+            height: 350,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+              Color(0xFF3383CD),
+              Color(0xFF11249F),
+            ],
+            ),
+            image: DecorationImage(image: AssetImage("assets/images/virus.png"),
+            )),
+          )
+        ],
       ),
     );
   }
