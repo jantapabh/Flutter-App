@@ -57,11 +57,59 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     Expanded(
                         child: Stack(
-                      children: <Widget>[SvgPicture.asset("assets/icons/Drcorona.svg")],
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          "assets/icons/Drcorona.svg",
+                          width: 230,
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.topCenter,
+                        ),
+                        Positioned(
+                          top: 20,
+                          left: 150,
+                          child: Text(
+                            "All you need \nis stay at home.",
+                            style: kHeadTextStyle.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Container(), // I dont know why it can't work without container
+                      ],
                     )),
                   ],
                 )),
-          )
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Color(0xFFE5E5E5),
+              ),
+            ),
+            child: Row(
+              children: <Widget>[
+                SvgPicture.asset("assets/icons/maps-and-flags.svg"),
+                Expanded(
+                    child: DropdownButton(
+                  items: ['Indonisia', 'Bangladesh', 'United State']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (value) {},
+                ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
