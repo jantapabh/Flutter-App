@@ -30,8 +30,9 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           ClipPath(
-              clipper: MyClipper(),
-              child: Container(
+            clipper: MyClipper(),
+            child: Container(
+                padding: EdgeInsets.only(left: 40, top: 50, right: 20),
                 height: 350,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -45,15 +46,22 @@ class HomeScreen extends StatelessWidget {
                     ),
                     image: DecorationImage(
                       image: AssetImage("assets/images/virus.png"),
-                    )
+                    )),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: SvgPicture.asset("assets/icons/menu.svg"),
                     ),
-                    child: Column(
-                      children: <Widget>[
-                        SvgPicture.asset("assets/icons/menu.svg"),
-                        ],
-                        )
-                    ),
-              )
+                    SizedBox(height: 20),
+                    Expanded(
+                        child: Stack(
+                      children: <Widget>[SvgPicture.asset("assets/icons/Drcorona.svg")],
+                    )),
+                  ],
+                )),
+          )
         ],
       ),
     );
@@ -69,10 +77,11 @@ class MyClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(
         size.width / 2, size.height, size.width, size.height - 80);
 
-        path.lineTo(size.width, 0);
-        path.close();
+    path.lineTo(size.width, 0);
+    path.close();
     return path;
   }
+
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
 //To do element ShouldReclip
