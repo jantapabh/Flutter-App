@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: HomeScreen(),
+      home: HomeScreen(), //เรียกแสดงผล HomeScreen
     );
   }
 }
 
+//สร้าง class HomeScreen นำไปแสดงผลใน MaterialApp
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
