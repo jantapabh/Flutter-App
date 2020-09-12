@@ -1,9 +1,9 @@
 //Text widget
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projectapp/constant.dart';
+import 'package:projectapp/widgets/counter.dart';
 
 void main() => runApp(MyApp());
 
@@ -158,59 +158,61 @@ class HomeScreen extends StatelessWidget {
                         offset: Offset(0, 4),
                         blurRadius: 30,
                         color: kShadowColor,
-                     ),
+                      ),
                     ],
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                     Counter(),
-                      ],
+                      Counter(
+                          color: kInfectedColor,
+                          number: 1046,
+                          title: "Infected"),
+                      Counter(color: kDeathColor, number: 87, title: "Deaths"),
+                      Counter(
+                          color: kRecovercolor, number: 46, title: "Recover"),
+                    ],
                   ),
                 ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Spread of Virus",
+                      style: kTitleTextstyle,
+                    ),
+                    Text(
+                      "See details",
+                      style: TextStyle(
+                          color: kPrimaryColor, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(20),
+                  height: 178,
+                  width: double.infinity,
+                  decoration:
+                      BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(offset: Offset(0, 10),
+                          blurRadius: 30,
+                          color: kShadowColor,
+                          ),
+                          ],
+                        ),
+                        child: Image.asset("assets/images/map.png", fit: BoxFit.contain,),
+                )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
-  }
-}
-
-class Counter extends StatelessWidget{
-  final int number;
-  final color 
-  const Counter({
-    Key: key,
-  }) : super(key: key);
-
-  @override
-
-  Widget build(BuildContext context){
-    return Column(children: <Widget>[
-      Container(
-      padding: EdgeInsert.all(6),)
-    ]),
-    )
-  }
-}
-
-class MyClipper extends CustomClipper<Path> {
-  //To do implememt getClip
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
-
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-//To do element ShouldReclip
-    return false;
   }
 }
