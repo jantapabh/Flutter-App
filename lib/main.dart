@@ -1,4 +1,6 @@
 //Text widget
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projectapp/constant.dart';
@@ -161,28 +163,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Row(
                     children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.all(6),
-                            height: 25,
-                          width: 25,
-                          decoration: BoxDecoration(shape: BoxShape.circle,
-                          color: kInfectedColor.withOpacity(.26),
-                          ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.transparent,
-                              border: Border.all(color: kInfectedColor,
-                              width: 2,
-                              )
-                            ),
-                          ),
-                          ),
-                          
-                          ],
-                      ),
+                     Counter(),
                       ],
                   ),
                 ),
@@ -192,6 +173,24 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Counter extends StatelessWidget{
+  final int number;
+  final color 
+  const Counter({
+    Key: key,
+  }) : super(key: key);
+
+  @override
+
+  Widget build(BuildContext context){
+    return Column(children: <Widget>[
+      Container(
+      padding: EdgeInsert.all(6),)
+    ]),
+    )
   }
 }
 
